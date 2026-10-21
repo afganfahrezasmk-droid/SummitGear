@@ -46,6 +46,7 @@ $judul_halaman = $judul_halaman ?? 'SummitGear';
         </button>
 
         <div class="collapse navbar-collapse" id="menuNavbar">
+
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
@@ -63,23 +64,34 @@ $judul_halaman = $judul_halaman ?? 'SummitGear';
                 </li>
 
                 <?php if (isset($_SESSION['user_id'])): ?>
+
                     <li class="nav-item">
                         <a class="nav-link"
                            href="<?= BASE_URL; ?>/logout.php">
                             Logout
                         </a>
                     </li>
+
                 <?php else: ?>
+
                     <li class="nav-item">
                         <a class="nav-link"
                            href="<?= BASE_URL; ?>/login.php">
                             Login
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="<?= BASE_URL; ?>/daftar.php">
+                            Daftar
+                        </a>
+                    </li>
+
                 <?php endif; ?>
 
             </ul>
-        </div>
 
+        </div>
     </div>
 </nav>

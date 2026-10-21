@@ -214,10 +214,25 @@ include '../template/header.php';
                     </div>
                 </a>
             </div>
+           
+            <div class="col-md-6 col-lg-4">
+                <a href="<?= BASE_URL; ?>/admin/log_aktivitas.php"
+                class="text-decoration-none text-dark">
 
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Log Aktivitas</h5>
+
+                            <p class="text-secondary mb-0">
+                                Lihat riwayat aktivitas pengguna SummitGear.
+                            </p>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
         </div>
     </section>
-
 </main>
 
 <?php include '../template/footer.php'; ?>

@@ -1,15 +1,38 @@
-
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Arahkan pengguna yang sudah login ke dashboard sesuai role
+if (isset($_SESSION['user_id'])) {
+    $role = $_SESSION['role'] ?? '';
+
+    if ($role === 'admin') {
+        header("Location: admin/index.php");
+        exit;
+    }
+
+    if ($role === 'petugas') {
+        header("Location: petugas/index.php");
+        exit;
+    }
+
+    if ($role === 'peminjam') {
+        header("Location: peminjam/index.php");
+        exit;
+    }
+}
+
 $judul_halaman = "Beranda";
 
 include 'template/header.php';
 ?>
 
 <main>
-    <!-- Bagian utama beranda -->
     <section class="bg-white border-bottom">
         <div class="container py-5">
             <div class="row align-items-center py-lg-4">
+
                 <div class="col-lg-7">
                     <span class="badge text-bg-success mb-3">
                         SummitGear Outdoor
@@ -68,11 +91,11 @@ include 'template/header.php';
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Bagian informasi layanan -->
     <section class="container py-5">
         <div class="mb-4">
             <h2 class="fw-bold">Layanan Kami</h2>
@@ -83,13 +106,13 @@ include 'template/header.php';
         </div>
 
         <div class="row g-4">
+
             <div class="col-md-4">
                 <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h5 class="card-title fw-bold">
                             Daftar Peralatan
                         </h5>
-
                         <p class="card-text text-secondary">
                             Lihat jenis perlengkapan, stok,
                             dan kondisi alat yang tersedia.
@@ -104,7 +127,6 @@ include 'template/header.php';
                         <h5 class="card-title fw-bold">
                             Pengajuan Peminjaman
                         </h5>
-
                         <p class="card-text text-secondary">
                             Ajukan peminjaman perlengkapan
                             sesuai kebutuhan kegiatanmu.
@@ -119,7 +141,6 @@ include 'template/header.php';
                         <h5 class="card-title fw-bold">
                             Pengembalian Alat
                         </h5>
-
                         <p class="card-text text-secondary">
                             Data pengembalian dicatat agar
                             penggunaan inventaris lebih tertib.
@@ -127,6 +148,7 @@ include 'template/header.php';
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 </main>
